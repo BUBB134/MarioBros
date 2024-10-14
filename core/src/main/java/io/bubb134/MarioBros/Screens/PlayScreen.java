@@ -19,6 +19,7 @@ import io.bubb134.MarioBros.MarioBros;
 import io.bubb134.MarioBros.Scenes.Hud;
 import io.bubb134.MarioBros.Sprites.Mario;
 import io.bubb134.MarioBros.Tools.B2WorldCreator;
+import io.bubb134.MarioBros.Tools.WorldContactListener;
 
 public class PlayScreen implements Screen {
     private MarioBros game;
@@ -50,7 +51,7 @@ public class PlayScreen implements Screen {
         world = new World(new Vector2(0, -10), true);
         player = new Mario(world, this);
         b2dr = new Box2DDebugRenderer();
-
+        world.setContactListener(new WorldContactListener());
         new B2WorldCreator(world, map);
     }
 
